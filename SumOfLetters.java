@@ -1,5 +1,5 @@
 import java.util.*;
-public class LetterSum extends Exception
+public class SumOfLetters extends Exception
 {
 	public int letter(String input)
 	{
@@ -30,8 +30,8 @@ public class LetterSum extends Exception
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter the keyword:");
 		String word = sc.next();
-		Fib f = new Fib();
-		int res = f.letter(word);
+		SumOfLetters s = new SumOfLetters();
+		int res = s.letter(word);
 		System.out.println("Sum of "+word+" is: "+res);
 	}
 }
