@@ -1,9 +1,13 @@
 import java.util.*;
-public class SumOfLetters extends Exception
+public class SumOfLetters
 {
 	public int letter(String input)
 	{
 		int a=0, b=1, c, sum=0;
+		
+		if(!(input.matches("[A-Za-z]+")))
+			throw new UnsupportedOperationException("Invalid input");
+		
 		Map<Integer,String> alpha = new LinkedHashMap<Integer,String>();		
 		for(int i=0; i<26; i++)
 		{
@@ -11,15 +15,13 @@ public class SumOfLetters extends Exception
 			c = a+b;
 			a = b;
 			b = c;
-		}		
-		// System.out.println("Input is: "+ input);
+		}				
 		for(int len=0; len < input.length(); len++)
 		{
 			for(Map.Entry<Integer,String> e : alpha.entrySet())
 			{
-				/* if(input.charAt(len) == ' ')
-					throw new UnsupportedOperationException("Invalid input");
-				else  */if(e.getValue().equals(""+input.charAt(len)))
+				String ch = ""+input.charAt(len);				
+				if(e.getValue().equals(ch.toUpperCase()))
 					sum += e.getKey();
 			}
 		}		
